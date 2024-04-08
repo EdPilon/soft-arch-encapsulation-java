@@ -43,20 +43,16 @@ public class Employee {
     // would only do this once, upon being hired.
     public void meetWithHrForBenefitAndSalaryInfo() {
         metWithHr = true;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
-        String fmtDate = formatter.format(orientationDate);
         System.out.println(firstName + " " + lastName + " met with HR on "
-                + fmtDate);
+                + formatDate());
     }
 
     // Assume this must be performed second, and assume that an employee
     // would only do this once, upon being hired.
     public void meetDepartmentStaff() {
         metDeptStaff = true;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
-        String fmtDate = formatter.format(orientationDate);
         System.out.println(firstName + " " + lastName + " met with dept staff on "
-                + fmtDate);
+                + formatDate());
     }
 
     // Assume this must be performed third. And assume that because department
@@ -64,10 +60,8 @@ public class Employee {
     // independently from other classes.
     public void reviewDeptPolicies() {
         reviewedDeptPolicies = true;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
-        String fmtDate = formatter.format(orientationDate);
         System.out.println(firstName + " " + lastName + " reviewed dept policies on "
-                + fmtDate);
+                + formatDate());
     }
 
     // Assume this must be performed fourth. And assume that because employees
@@ -76,10 +70,12 @@ public class Employee {
     public void moveIntoCubicle(String cubeId) {
         this.cubeId = cubeId;
         this.movedIn = true;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
-        String fmtDate = formatter.format(orientationDate);
         System.out.println(firstName + " " + lastName + " moved into cubicle "
-                + cubeId + " on " + fmtDate);
+                + cubeId + " on " + formatDate());
+    }
+    private String formatDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
+        return formatter.format(orientationDate);
     }
 
     public String getFirstName() {
